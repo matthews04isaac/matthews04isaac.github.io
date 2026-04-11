@@ -119,10 +119,17 @@
   }
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
+    background-image: url('MainCoach.jpeg');
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(200,16,46,0.08) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 40% at 80% 70%, rgba(245,240,238,0.04) 0%, transparent 50%),
-      linear-gradient(180deg, #080a0c 0%, #0b1219 60%, #080a0c 100%);
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(200,16,46,0.18) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(8,10,12,0.78) 0%, rgba(8,10,12,0.55) 45%, rgba(8,10,12,0.88) 100%);
   }
   .hero-rink-lines {
     position: absolute; inset: 0; z-index: 1; opacity: 0.04;
@@ -555,6 +562,130 @@
   .coaching-item p {
     font-size: 14px; line-height: 1.6;
     color: rgba(240,244,248,0.5);
+  }
+
+  /* ===== ACTION PHOTO BANNER ===== */
+  #action-banner {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .action-banner-img {
+    position: absolute; inset: 0;
+    background-image: url('IMG_6012.jpeg');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  .action-banner-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(8,10,12,0.82) 0%,
+      rgba(8,10,12,0.45) 50%,
+      rgba(200,16,46,0.18) 100%
+    );
+  }
+  .action-banner-content {
+    position: relative; z-index: 2;
+    height: 100%;
+    display: flex; align-items: center;
+    max-width: 1200px; margin: 0 auto; padding: 0 48px;
+  }
+  .action-banner-text {
+    max-width: 560px;
+  }
+  .action-banner-text .section-label { margin-bottom: 16px; }
+  .action-banner-text h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 0.92;
+    letter-spacing: 3px;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .action-banner-text h2 em {
+    color: var(--gold); font-style: normal; display: block;
+  }
+  .action-banner-text p {
+    font-size: 16px; line-height: 1.75;
+    color: rgba(245,240,238,0.75);
+    max-width: 440px;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  #testimonials {
+    padding: 100px 0;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+  }
+  .testimonials-header { text-align: center; margin-bottom: 64px; }
+  .testimonials-grid {
+    display: flex;
+    justify-content: center;
+  }
+  .testimonial-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 48px 56px;
+    max-width: 760px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .testimonial-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-bright) 100%);
+  }
+  .testimonial-quote-mark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 120px; line-height: 0.7;
+    color: rgba(200,16,46,0.1);
+    position: absolute; top: 20px; right: 36px;
+    pointer-events: none;
+    letter-spacing: -4px;
+  }
+  .testimonial-text {
+    font-size: 19px; line-height: 1.75;
+    color: rgba(245,240,238,0.85);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 36px;
+    position: relative; z-index: 1;
+  }
+  .testimonial-author {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .testimonial-author-bar {
+    width: 32px; height: 2px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .testimonial-author-info {}
+  .testimonial-author-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--white);
+  }
+  .testimonial-author-role {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 3px;
+  }
+  @media (max-width: 900px) {
+    #action-banner { height: 380px; }
+    .action-banner-img { background-attachment: scroll; }
+    .action-banner-content { padding: 0 24px; }
+    .testimonial-card { padding: 36px 28px; }
+    .testimonial-text { font-size: 17px; }
   }
 
   /* ===== SHOWCASE CTA ===== */
@@ -1075,6 +1206,44 @@
           <div>
             <h4>Mentorship Beyond the Ice</h4>
             <p>We invest in the person, not just the player. Character, accountability, and leadership are coached as seriously as skating.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION PHOTO BANNER -->
+<div id="action-banner">
+  <div class="action-banner-img"></div>
+  <div class="action-banner-overlay"></div>
+  <div class="action-banner-content">
+    <div class="action-banner-text">
+      <div class="section-label">On The Ice</div>
+      <h2>Where<em>Work Gets Done</em></h2>
+      <p>Every rep, every edge, every decision — built in real practice reps with coaches who demand excellence and players who rise to meet it.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="testimonials-header">
+      <div class="section-label" style="justify-content:center;">What Parents Say</div>
+      <h2 class="section-h2" style="text-align:center;">Results That<em style="display:inline; color:var(--ice)"> Speak</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">
+          "Ascend completely changed how my son approaches the game. The coaching staff doesn't just run drills — they invest in these kids. After one summer, his compete level, his edge work, and honestly his confidence on the ice were completely transformed. This program is the real deal."
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-author-bar"></div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author-name">Anonymous</div>
+            <div class="testimonial-author-role">Royals Parent</div>
           </div>
         </div>
       </div>
